@@ -3,50 +3,52 @@
 #include <vector>
 #include <algorithm> // for std::find
 #include <iterator> // for std::begin, std::end
-
+#include <string>
 using namespace std;
 int main()
-{   
-  vector <int> numbers {1,2,3,4};
-  char selection {};
+{  
+ 
+  string secret_message {};
+  cout << "Enter your secret message: ";
+  getline(cin, secret_message);
 
-  do {
-      //display menu
-      cin >> selection;
+  string encrypted_message {};
 
-      if(selection == 'P' || selection == 'p')
+  cout << '\nEncrypting message...' << endl;
+
+  for (char ch: secret_message)
+  {
+      size_t position = alphabet.find(ch);
+      if(position != string::npos)
       {
-          if(numbers.size() > 1)
-          {
-              cout << "[ ";
-          for(auto num: numbers)
-          {
-              cout << num << " ";
-          }
-              cout << "]" << endl;
-          }
-          else
-          {
-              cout << "list is empty" << endl;
-          }
-          
+          char new_char{key.at(position)};
+          encrypted_message += new_char
+
       }
-      else if (selection == 'A' || selection == 'a')
+      else
       {
-          int to_add {};
-          cout << "enter the num you want to add";
-          cin >> to_add;
-          numbers.push_back(to_add);
-          cout << "added: ";
-          cout << to_add;
-
+        encrypted_message += ch;
       }
       
+  }
 
-  } while(selection!= 'q' && selection != 'Q');
- 
+  string decrypted_message {};
+  cout <<"\nDecrypted message.." << endl;
 
-    
+  for(char ch: encrypted_message){
+      size_t position = key.find(ch);
+      if(position != string::npos)
+      {
+          char new_char {alphabet.at(position)};
+          decrypted_message += new_char;
+      }
+      else
+      {
+          decrypted_message += ch
+      }
+  }
+  
+  
 
     
     return 0;
