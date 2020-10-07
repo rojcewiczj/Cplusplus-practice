@@ -6,45 +6,18 @@
 #include <string>
 using namespace std;
 
-const double pi {3.14159};
+int num = 3;
+double numnum = 3.5;
 
-double calc_area_circle(double radius)
+void add(int num = num, double numnum = numnum)
 {
-return pi * radius * radius;
-}
-
-double calc_volume_cylinder(double radius, double height)
-{
-    return calc_area_circle(radius) * height;
-}
-
-void area_circle()
-{
-    double radius{};
-    cout << "\n Enter the radius of the circle: ";
-    cin >> radius;
-    
-    cout << "The area of a circle with radius " << radius << " is " << calc_area_circle(radius) << endl;
-}
-
-void volume_cylinder()
-{
-    double radius{};
-    double height{};
-    cout << "\n Enter the radius of the cylinder: ";
-    cin >> radius;
-    cout << "\n enter the height of the cylinder: ";
-    cin >> height;
-
-    cout << "The volume of a cylinder with radius " << radius << " and height " << height << " is " << calc_volume_cylinder(radius, height) << endl;
-
+    cout << num + numnum;
 }
 
 int main()
 {  
  
-    area_circle();
-    volume_cylinder();
+    add(5, 3.5);
 
     return 0;
-}
+} 
